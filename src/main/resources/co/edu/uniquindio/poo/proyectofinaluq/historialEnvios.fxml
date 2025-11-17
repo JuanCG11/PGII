@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.HistorialEnviosController" spacing="8" padding="10">
+    <Label text="Historial de envíos" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+    <TableView fx:id="tablaHistorial" prefHeight="300">
+        <columns>
+            <TableColumn text="ID" prefWidth="120"><cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory></TableColumn>
+            <TableColumn text="Origen" prefWidth="140"><cellValueFactory><PropertyValueFactory property="origen"/></cellValueFactory></TableColumn>
+            <TableColumn text="Destino" prefWidth="140"><cellValueFactory><PropertyValueFactory property="destino"/></cellValueFactory></TableColumn>
+            <TableColumn text="Costo" prefWidth="100"><cellValueFactory><PropertyValueFactory property="costo"/></cellValueFactory></TableColumn>
+            <TableColumn text="Estado" prefWidth="120"><cellValueFactory><PropertyValueFactory property="estado"/></cellValueFactory></TableColumn>
+            <TableColumn text="Fecha" prefWidth="160"><cellValueFactory><PropertyValueFactory property="fechaCreacion"/></cellValueFactory></TableColumn>
+        </columns>
+    </TableView>
+
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button text="Exportar CSV" onAction="#onExportarCSV"/>
+    </HBox>
+</VBox>

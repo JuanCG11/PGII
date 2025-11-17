@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.proyectofinaluq.logistica.controller;
 
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.facade.LogisticsFacade;
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.utils.SceneLoader;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
@@ -14,13 +15,18 @@ public class MetricasController {
 
     @FXML
     public void initialize() {
-        XYChart.Series<String, Number> serie = new XYChart.Series<>();
-        serie.setName("Envíos por zona");
 
-        facade.metricasPorZona().forEach((zona, cantidad) -> {
-            serie.getData().add(new XYChart.Data<>(zona, cantidad));
+        XYChart.Series<String, Number> serie = new XYChart.Series<>();
+        serie.setName("Envios por zona");
+
+        facade.metricasPorZona().forEach((zona, count) -> {
+            serie.getData().add(new XYChart.Data<>(zona, count));
         });
 
         barChart.getData().add(serie);
+    }
+    @FXML
+    public void onVolver() {
+        SceneLoader.load("adminView.fxml", "Panel Administrador");
     }
 }

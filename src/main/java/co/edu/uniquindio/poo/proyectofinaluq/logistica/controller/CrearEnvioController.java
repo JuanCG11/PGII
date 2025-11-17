@@ -2,6 +2,7 @@ package co.edu.uniquindio.poo.proyectofinaluq.logistica.controller;
 
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.dto.EnvioDTO;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.facade.LogisticsFacade;
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.utils.SceneLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -28,28 +29,31 @@ public class CrearEnvioController {
     @FXML
     public void onCrearEnvio() {
         try {
-
             if (cmbOrigen.getValue() == null || cmbDestino.getValue() == null) {
                 lblResultado.setText("Debes seleccionar origen y destino.");
                 return;
             }
 
+            double peso = Double.parseDouble(txtPeso.getText().trim());
+            double alto = Double.parseDouble(txtAlto.getText().trim());
+            double ancho = Double.parseDouble(txtAncho.getText().trim());
+            double prof = Double.parseDouble(txtProfundidad.getText().trim());
+
             EnvioDTO dto = facade.crearEnvio(
                     cmbOrigen.getValue(),
                     cmbDestino.getValue(),
-                    Double.parseDouble(txtPeso.getText()),
-                    Double.parseDouble(txtAlto.getText()),
-                    Double.parseDouble(txtAncho.getText()),
-                    Double.parseDouble(txtProfundidad.getText())
+                    peso,
+                    alto,
+                    ancho,
+                    prof
             );
 
-            lblResultado.setText(
-                    "✔ Envío creado con ID: " + dto.id +
-                            "\nCosto: $" + dto.costo
-            );
+            lblResultado.setText("✔ Envío creado ID: " + dto.id + "\nCosto: $" + dto.costo);
 
+        } catch (NumberFormatException nfe) {
+            lblResultado.setText(" Error: ingresa valores numéricos válidos.");
         } catch (Exception e) {
-            lblResultado.setText("Error: verifica los datos del formulario.");
+            lblResultado.setText(" Error inesperado: " + e.getMessage());
         }
     }
 }

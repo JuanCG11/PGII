@@ -3,6 +3,7 @@ package co.edu.uniquindio.poo.proyectofinaluq.logistica.controller;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.dto.UsuarioDTO;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.facade.LogisticsFacade;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.model.enums.RolUsuario;
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.patterns.creacionales.singleton.AppConfig;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.utils.SceneLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -30,6 +31,9 @@ public class LoginController {
             return;
         }
 
+        // Guardar en Singleton
+        AppConfig.getInstance().setUsuarioActual(user);
+
         if (user.rol() == RolUsuario.ADMIN) {
             SceneLoader.load("adminView.fxml", "Panel Administrador");
         } else {
@@ -39,7 +43,7 @@ public class LoginController {
 
     @FXML
     public void onRegister() {
-        SceneLoader.load("register.fxml", "Registro de Usuario");
+        SceneLoader.load("register.fxml", "Registro");
     }
 
     private void showAlert() {

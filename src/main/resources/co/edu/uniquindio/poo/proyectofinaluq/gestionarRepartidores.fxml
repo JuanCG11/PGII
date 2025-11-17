@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.GestionarRepartidoresController">
+    <top>
+        <ToolBar>
+            <Label text="Gestionar Repartidores" style="-fx-font-weight:bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Volver" onAction="#onVolver"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <VBox spacing="8" padding="10">
+            <TableView fx:id="tabla" prefHeight="220">
+                <columns>
+                    <TableColumn text="ID" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Nombre" prefWidth="180">
+                        <cellValueFactory><PropertyValueFactory property="nombre"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Teléfono" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="telefono"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Zona" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="zona"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Disponibilidad" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="disponibilidad"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+
+            <GridPane hgap="8" vgap="8">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+
+                <Label text="ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtId" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Nombre:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtNombre" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Documento:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtDocumento" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Teléfono:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtTelefono" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Zona:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtZona" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button text="Crear" onAction="#onCrear"/>
+                <Button text="Eliminar" onAction="#onEliminar"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

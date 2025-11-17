@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.poo.proyectofinaluq.UsuarioView"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.UsuarioViewController">
+    <top>
+        <ToolBar>
+            <Label text="Panel Usuario" style="-fx-font-size:14px; -fx-font-weight:bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Cerrar sesión" onAction="#onSalir"/>
+        </ToolBar>
+    </top>
 
-</AnchorPane>
+    <center>
+        <VBox spacing="12" padding="12">
+            <HBox spacing="10">
+                <Button text="Crear Envío" onAction="#onCrearEnvio"/>
+                <Button text="Cotizar" onAction="#onCotizarEnvio"/>
+                <Button text="Historial" onAction="#onHistorial"/>
+                <Button text="Pagos" onAction="#onPago"/>
+            </HBox>
+
+            <Separator />
+
+            <Label text="Acciones rápidas" style="-fx-font-weight:bold;"/>
+            <HBox spacing="8">
+                <Label text="Aquí puedes agregar accesos rápidos o resumen de envíos."/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

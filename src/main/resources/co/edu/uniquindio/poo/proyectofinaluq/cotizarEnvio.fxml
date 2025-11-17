@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.CotizarEnvioController"
+      spacing="12" padding="12" alignment="TOP_CENTER">
+    <Label text="Cotizar Envío" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+    <GridPane hgap="8" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Origen alias:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtOrigen" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Destino alias:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtDestino" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Peso (kg):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtPeso" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Alto (cm):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtAlto" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Ancho (cm):" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtAncho" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Profundidad (cm):" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtProfundidad" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="8" alignment="CENTER">
+        <Button text="Cotizar" onAction="#onCotizar"/>
+        <Button text="Volver" onAction="#onVolver"/>
+    </HBox>
+
+    <Label fx:id="lblCotizacion" wrapText="true"/>
+</VBox>

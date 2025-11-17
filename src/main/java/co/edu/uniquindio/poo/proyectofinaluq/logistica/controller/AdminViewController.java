@@ -16,12 +16,12 @@ public class AdminViewController {
 
     @FXML
     public void onAsignarEnvio() {
-        SceneLoader.load("asignarEnvio.fxml", "Asignar Envíos");
+        SceneLoader.load("asignarEnvio.fxml", "Asignar Envío");
     }
 
     @FXML
     public void onMetricas() {
-        SceneLoader.load("metricas.fxml", "Métricas del Sistema");
+        SceneLoader.load("metricas.fxml", "Métricas");
     }
 
     @FXML

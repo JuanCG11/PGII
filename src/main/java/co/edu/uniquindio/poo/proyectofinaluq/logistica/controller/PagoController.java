@@ -23,12 +23,9 @@ public class PagoController {
 
     @FXML
     public void onPagar() {
-        EnvioDTO envio = tablaEnvios.getSelectionModel().getSelectedItem();
-        if (envio != null) {
-            String result = facade.pagarEnvio(envio.id == null ? "" : envio.id);
-            lblResultado.setText(result);
-        } else {
-            lblResultado.setText("Selecciona un envío");
+        EnvioDTO e = tablaEnvios.getSelectionModel().getSelectedItem();
+        if (e != null) {
+            lblResultado.setText(facade.pagarEnvio(e.id()));
         }
     }
 }

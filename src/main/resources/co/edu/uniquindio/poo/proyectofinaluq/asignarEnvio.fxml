@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.AsignarEnvioController" spacing="10" padding="10">
+    <Label text="Asignar Envío" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+    <TableView fx:id="tablaEnvios" prefHeight="220">
+        <columns>
+            <TableColumn text="ID" prefWidth="120"><cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory></TableColumn>
+            <TableColumn text="Origen" prefWidth="140"><cellValueFactory><PropertyValueFactory property="origen"/></cellValueFactory></TableColumn>
+            <TableColumn text="Destino" prefWidth="140"><cellValueFactory><PropertyValueFactory property="destino"/></cellValueFactory></TableColumn>
+            <TableColumn text="Costo" prefWidth="100"><cellValueFactory><PropertyValueFactory property="costo"/></cellValueFactory></TableColumn>
+            <TableColumn text="Estado" prefWidth="120"><cellValueFactory><PropertyValueFactory property="estado"/></cellValueFactory></TableColumn>
+        </columns>
+    </TableView>
+
+    <HBox spacing="8">
+        <Label text="Repartidor:"/>
+        <ComboBox fx:id="cmbRepartidor" prefWidth="240"/>
+        <Button text="Asignar" onAction="#onAsignar"/>
+    </HBox>
+</VBox>

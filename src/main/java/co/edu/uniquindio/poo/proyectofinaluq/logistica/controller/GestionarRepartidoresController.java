@@ -3,29 +3,32 @@ package co.edu.uniquindio.poo.proyectofinaluq.logistica.controller;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.dto.RepartidorDTO;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.facade.LogisticsFacade;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.model.enums.DisponibilidadRepartidor;
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.utils.SceneLoader;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+
+import java.util.UUID;
 
 public class GestionarRepartidoresController {
     @FXML
     private TableView<RepartidorDTO> tabla;
 
     @FXML
-    private TextField txtId, txtNombre, txtDocumento, txtTelefono, txtZona;
+    private TextField txtNombre, txtDocumento, txtTelefono, txtZona;
 
     private final LogisticsFacade facade = new LogisticsFacade();
 
     @FXML
     public void initialize() {
-        tabla.setItems(FXCollections.observableArrayList(facade.listarRepartidores()));
+        refresh();
     }
 
     @FXML
     public void onCrear() {
         facade.crearRepartidor(
-                txtId.getText(),
+                "R-" + UUID.randomUUID(),
                 txtNombre.getText(),
                 txtDocumento.getText(),
                 txtTelefono.getText(),
@@ -46,5 +49,9 @@ public class GestionarRepartidoresController {
 
     private void refresh() {
         tabla.setItems(FXCollections.observableArrayList(facade.listarRepartidores()));
+    }
+    @FXML
+    public void onVolver() {
+        SceneLoader.load("adminView.fxml", "Panel Administrador");
     }
 }

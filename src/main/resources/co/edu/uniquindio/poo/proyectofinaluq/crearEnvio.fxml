@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.CrearEnvioController">
+    <center>
+        <VBox spacing="12" padding="16" alignment="TOP_CENTER">
+            <Label text="Crear Envío" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+            <GridPane hgap="8" vgap="8">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+
+                <Label text="Origen (alias):" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cmbOrigen" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Destino (alias):" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cmbDestino" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Peso (kg):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtPeso" promptText="ej. 2.5" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Alto (cm):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtAlto" promptText="ej. 30" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Ancho (cm):" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtAncho" promptText="ej. 20" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                <Label text="Profundidad (cm):" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtProfundidad" promptText="ej. 10" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Cotizar y Crear" onAction="#onCrearEnvio"/>
+                <Button text="Volver" onAction="#onVolver"/>
+            </HBox>
+
+            <Label fx:id="lblResultado" wrapText="true"/>
+        </VBox>
+    </center>
+</BorderPane>

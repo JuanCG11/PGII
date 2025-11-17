@@ -5,6 +5,7 @@ import co.edu.uniquindio.poo.proyectofinaluq.logistica.dto.RepartidorDTO;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.facade.LogisticsFacade;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 
@@ -30,19 +31,20 @@ public class AsignarEnvioController {
         RepartidorDTO rep = cmbRepartidor.getValue();
 
         if (envio == null || rep == null) {
-            System.out.println("Selecciona un envío y un repartidor");
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setHeaderText("Selecciona envío y repartidor");
+            a.show();
             return;
         }
 
         boolean ok = facade.asignarEnvio(envio.id, rep.id());
 
-        if (!ok) {
-            System.out.println("No se pudo asignar el envío (Estado no permite asignación)");
-        } else {
-            System.out.println("Envío asignado correctamente");
+        Alert a = new Alert(ok ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
+        a.setHeaderText(ok ? "Asignado" : "No se pudo asignar");
+        a.setContentText(ok ? "Envío asignado correctamente" : "El envío no pudo ser asignado (estado no permite asignación)");
+        a.show();
 
-            // refrescar tabla
-            tablaEnvios.setItems(FXCollections.observableArrayList(facade.listarEnvios()));
-        }
+        // refrescar tabla
+        tablaEnvios.setItems(FXCollections.observableArrayList(facade.listarEnvios()));
     }
 }

@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.poo.proyectofinaluq.AdminView"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.AdminViewController">
+    <top>
+        <ToolBar>
+            <Label text="Panel Administrador" style="-fx-font-size:14px; -fx-font-weight:bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Cerrar sesión" onAction="#onSalir"/>
+        </ToolBar>
+    </top>
 
-</AnchorPane>
+    <center>
+        <VBox spacing="12" padding="12">
+            <HBox spacing="10">
+                <Button text="Gestionar Usuarios" onAction="#onGestionUsuarios"/>
+                <Button text="Gestionar Repartidores" onAction="#onGestionRepartidores"/>
+                <Button text="Asignar Envíos" onAction="#onAsignarEnvio"/>
+                <Button text="Métricas" onAction="#onMetricas"/>
+            </HBox>
+
+            <Separator/>
+
+            <Label text="Panel de administración - accesos rápidos" />
+        </VBox>
+    </center>
+</BorderPane>
