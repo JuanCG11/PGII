@@ -2,6 +2,8 @@ package co.edu.uniquindio.poo.proyectofinaluq.logistica.controller;
 
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.dto.UsuarioDTO;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.facade.LogisticsFacade;
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.model.enums.RolUsuario;
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.utils.SceneLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -21,15 +23,14 @@ public class LoginController {
         String email = txtEmail.getText();
         String pass = txtPassword.getText();
 
-        UsuarioDTO user = facade.login(email, pass);
+        UsuarioDTO user = facade.loginUsuario(email, pass);
 
         if (user == null) {
-            showAlert("Error", "Credenciales inválidas");
+            showAlert();
             return;
         }
 
-        // Navegación según el rol
-        if (user.isAdmin()) {
+        if (user.rol() == RolUsuario.ADMIN) {
             SceneLoader.load("adminView.fxml", "Panel Administrador");
         } else {
             SceneLoader.load("usuarioView.fxml", "Panel Usuario");
@@ -41,10 +42,10 @@ public class LoginController {
         SceneLoader.load("register.fxml", "Registro de Usuario");
     }
 
-    private void showAlert(String title, String msg) {
+    private void showAlert() {
         Alert a = new Alert(Alert.AlertType.ERROR);
-        a.setHeaderText(title);
-        a.setContentText(msg);
+        a.setHeaderText("Error");
+        a.setContentText("Credenciales inválidas");
         a.show();
     }
 }

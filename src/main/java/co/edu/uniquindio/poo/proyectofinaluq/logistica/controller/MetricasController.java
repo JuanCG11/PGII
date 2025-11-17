@@ -6,6 +6,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 public class MetricasController {
+
     @FXML
     private BarChart<String, Number> barChart;
 
@@ -14,11 +15,11 @@ public class MetricasController {
     @FXML
     public void initialize() {
         XYChart.Series<String, Number> serie = new XYChart.Series<>();
-        serie.setName("Entregas por zona");
+        serie.setName("Envíos por zona");
 
-        facade.metricasPorZona().forEach((zona, cantidad) ->
-                serie.getData().add(new XYChart.Data<>(zona, cantidad))
-        );
+        facade.metricasPorZona().forEach((zona, cantidad) -> {
+            serie.getData().add(new XYChart.Data<>(zona, cantidad));
+        });
 
         barChart.getData().add(serie);
     }

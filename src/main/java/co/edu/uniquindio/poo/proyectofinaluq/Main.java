@@ -13,21 +13,21 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Iniciando app...");
-        LogisticsApp app = LogisticsApp.getInstance();
         LogisticsFacade facade = new LogisticsFacade();
 
-        UsuarioDTO u = facade.registrarUsuario("Andres Gomez","andres@example.com","3109998888");
-        System.out.println("Usuario creado: " + u.nombre + " id:" + u.id);
+        // registrar usuario (método que esperaba Main originalmente)
+        UsuarioDTO u = facade.registrarUsuario("Andres Gomez", "andres@example.com", "3109998888");
+        System.out.println("Usuario creado: " + u.nombre() + " id:" + u.id());
 
         // Ejemplo de cotización
-        Direccion origen = new Direccion("o1","Casa","Cra 10","CiudadX","0,0");
-        Direccion destino = new Direccion("d2","Oficina","Cl 20","CiudadX","0,0");
-        Paquete p = new Paquete(3.0,30,20,10);
-        EnvioDTO cot = facade.cotizarEnvio(origen,destino,p, List.of(ServicioAdicional.SEGURO.name()));
+        Direccion origen = new Direccion("o1", "Casa", "Cra 10", "CiudadX", "0,0");
+        Direccion destino = new Direccion("d2", "Oficina", "Cl 20", "CiudadX", "0,0");
+        Paquete p = new Paquete(3.0, 30, 20, 10);
+
+        EnvioDTO cot = facade.cotizarEnvio(origen, destino, p, List.of(ServicioAdicional.SEGURO.name()));
         System.out.println("Cotizacion: costo=" + cot.costo);
 
-        // Procesar pago simulado
+        // Procesar pago simulado (usa PagoDTO)
         PagoDTO pago = new PagoDTO("pay1", cot.costo, "SIMULADO");
         System.out.println("Procesando pago...");
         var pagoRes = facade.procesarPago(pago);

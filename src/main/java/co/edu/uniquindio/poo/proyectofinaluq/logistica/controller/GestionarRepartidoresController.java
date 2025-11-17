@@ -1,8 +1,11 @@
 package co.edu.uniquindio.poo.proyectofinaluq.logistica.controller;
 
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.dto.RepartidorDTO;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.facade.LogisticsFacade;
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.model.enums.DisponibilidadRepartidor;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class GestionarRepartidoresController {
@@ -10,7 +13,7 @@ public class GestionarRepartidoresController {
     private TableView<RepartidorDTO> tabla;
 
     @FXML
-    private TextField txtNombre, txtDocumento, txtTelefono, txtZona;
+    private TextField txtId, txtNombre, txtDocumento, txtTelefono, txtZona;
 
     private final LogisticsFacade facade = new LogisticsFacade();
 
@@ -22,9 +25,11 @@ public class GestionarRepartidoresController {
     @FXML
     public void onCrear() {
         facade.crearRepartidor(
+                txtId.getText(),
                 txtNombre.getText(),
                 txtDocumento.getText(),
                 txtTelefono.getText(),
+                DisponibilidadRepartidor.ACTIVO,
                 txtZona.getText()
         );
         refresh();

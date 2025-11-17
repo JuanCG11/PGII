@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.proyectofinaluq.logistica.controller;
 
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.utils.SceneLoader;
 import javafx.fxml.FXML;
 
 public class UsuarioViewController {

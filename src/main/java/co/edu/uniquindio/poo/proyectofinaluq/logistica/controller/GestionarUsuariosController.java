@@ -2,18 +2,18 @@ package co.edu.uniquindio.poo.proyectofinaluq.logistica.controller;
 
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.dto.UsuarioDTO;
 import co.edu.uniquindio.poo.proyectofinaluq.logistica.facade.LogisticsFacade;
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.model.enums.RolUsuario;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class GestionarUsuariosController {
-
     @FXML
     private TableView<UsuarioDTO> tablaUsuarios;
 
     @FXML
-    private TextField txtNombre, txtEmail, txtTelefono;
+    private TextField txtId, txtNombre, txtEmail, txtTelefono, txtPassword;
 
     private final LogisticsFacade facade = new LogisticsFacade();
 
@@ -25,9 +25,12 @@ public class GestionarUsuariosController {
     @FXML
     public void onCrear() {
         facade.crearUsuario(
+                txtId.getText(),
                 txtNombre.getText(),
                 txtEmail.getText(),
-                txtTelefono.getText()
+                txtTelefono.getText(),
+                txtPassword.getText(),
+                RolUsuario.CLIENTE
         );
         refresh();
     }
@@ -42,8 +45,6 @@ public class GestionarUsuariosController {
     }
 
     private void refresh() {
-        tablaUsuarios.setItems(
-                FXCollections.observableArrayList(facade.listarUsuarios())
-        );
+        tablaUsuarios.setItems(FXCollections.observableArrayList(facade.listarUsuarios()));
     }
 }
