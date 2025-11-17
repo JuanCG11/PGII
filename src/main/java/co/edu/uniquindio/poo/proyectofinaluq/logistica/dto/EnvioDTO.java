@@ -1,8 +1,6 @@
 package co.edu.uniquindio.poo.proyectofinaluq.logistica.dto;
 
-import co.edu.uniquindio.poo.proyectofinaluq.logistica.model.Direccion;
-import co.edu.uniquindio.poo.proyectofinaluq.logistica.model.Paquete;
-import co.edu.uniquindio.poo.proyectofinaluq.logistica.model.Repartidor;
+
 
 import java.time.LocalDateTime;
 

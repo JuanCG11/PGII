@@ -25,7 +25,7 @@ public class PagoController {
     public void onPagar() {
         EnvioDTO e = tablaEnvios.getSelectionModel().getSelectedItem();
         if (e != null) {
-            lblResultado.setText(facade.pagarEnvio(e.id()));
+            lblResultado.setText(facade.pagarEnvio(e.id));
         }
     }
 }
