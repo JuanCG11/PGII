@@ -4,7 +4,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.MetricasController" padding="10">
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.MetricasController" >
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
     <top>
         <ToolBar>
             <Label text="Métricas" style="-fx-font-weight:bold;"/>

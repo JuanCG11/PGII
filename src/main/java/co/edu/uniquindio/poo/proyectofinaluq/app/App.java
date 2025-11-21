@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.proyectofinaluq.app;
 
+import co.edu.uniquindio.poo.proyectofinaluq.logistica.utils.SceneLoader;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +13,7 @@ import java.util.Objects;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
+        SceneLoader.setPrimaryStage(stage);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/co/edu/uniquindio/poo/proyectofinaluq/login.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);

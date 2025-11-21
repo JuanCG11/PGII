@@ -6,7 +6,10 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.LoginController">
     <center>
-        <VBox spacing="12" alignment="CENTER" padding="20">
+        <VBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
             <Label text="Logística - Inicio de sesión" style="-fx-font-size:18px; -fx-font-weight:bold;"/>
             <GridPane hgap="8" vgap="8">
                 <columnConstraints>

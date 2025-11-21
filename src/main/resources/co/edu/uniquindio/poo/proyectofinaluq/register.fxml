@@ -4,9 +4,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.RegisterController">
     <center>
-        <VBox spacing="10" alignment="CENTER" padding="18">
+        <VBox spacing="10" alignment="CENTER" >
+            <padding>
+                <Insets top="18" right="18" bottom="18" left="18"/>
+            </padding>
             <Label text="Registro de usuario" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
             <GridPane hgap="8" vgap="8">
                 <columnConstraints>

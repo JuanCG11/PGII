@@ -15,7 +15,10 @@
     </top>
 
     <center>
-        <VBox spacing="8" padding="10">
+        <VBox spacing="8" >
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
             <TableView fx:id="tabla" prefHeight="220">
                 <columns>
                     <TableColumn text="ID" prefWidth="120">

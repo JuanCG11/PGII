@@ -56,4 +56,10 @@ public class CrearEnvioController {
             lblResultado.setText(" Error inesperado: " + e.getMessage());
         }
     }
+    @FXML
+    public void onVolver() {
+        SceneLoader.load("login.fxml", "Panel Login");
+    }
 }
+
+

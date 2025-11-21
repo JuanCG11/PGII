@@ -6,7 +6,10 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinaluq.logistica.controller.CrearEnvioController">
     <center>
-        <VBox spacing="12" padding="16" alignment="TOP_CENTER">
+        <VBox spacing="12" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="16" right="16" bottom="16" left="16"/>
+            </padding>
             <Label text="Crear Envío" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
 
             <GridPane hgap="8" vgap="8">

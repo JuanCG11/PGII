@@ -14,7 +14,10 @@
     </top>
 
     <center>
-        <VBox spacing="12" padding="12">
+        <VBox spacing="12" >
+            <padding>
+                <Insets top="12" right="12" bottom="12" left="12"/>
+            </padding>
             <HBox spacing="10">
                 <Button text="Gestionar Usuarios" onAction="#onGestionUsuarios"/>
                 <Button text="Gestionar Repartidores" onAction="#onGestionRepartidores"/>
